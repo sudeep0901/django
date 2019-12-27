@@ -15,9 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from blog.views import index, Message
-
+from django.conf.urls import include
 # python manage.py show_urls
 
 urlpatterns = [
@@ -30,3 +29,6 @@ urlpatterns = [
 ]
 
 
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]
