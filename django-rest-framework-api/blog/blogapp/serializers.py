@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from blogapp.models import Person
+from blogapp.models import Person, LANGUAGE_CHOICES, STYLE_CHOICES
 
 
 class PersonSerializer(ModelSerializer):

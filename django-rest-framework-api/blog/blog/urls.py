@@ -18,10 +18,15 @@ from django.urls import path, include
 
 from blog.views import index, Message
 
+# python manage.py show_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('message/', Message.as_view(), name='message'),
-    path('blogapp/', include('blogapp.urls'))
+    path('blogapp/', include('blogapp.urls')),
+    path('snippets/', include('snippets.urls'))
+
 ]
+
+

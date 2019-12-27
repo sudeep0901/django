@@ -9,7 +9,9 @@ from rest_framework import status
 # Create your views here.
 
 
+# class PersonView(APIView):
 class PersonView(APIView):
+
 
     def get_object(self):
         try:
