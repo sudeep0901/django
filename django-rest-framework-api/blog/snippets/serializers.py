@@ -24,21 +24,31 @@ from django.contrib.auth.models import User
 #         instance.style = validated_data.get('style', instance.style)
 #         instance.save()
 #         return instance
+# we'd like to use a hyperlinked style between entities. In order to do so, we'll modify our serializers to extend HyperlinkedModelSerializer instead of the existing ModelSerializer.
+
+# class SnippetSerializer(serializers.ModelSerializer):
 
 
-class SnippetSerializer(serializers.ModelSerializer):
+class SnippetSerializer(serializers.HyperlinkedModelSerializer):
+
     owner = serializers.ReadOnlyField(source='owner.username')
+    highlight = serializers.HyperlinkedIdentityField(
+        view_name='snippet_highlight', format='html')
 
     class Meta:
         model = Snippet
-        fields = ['id', 'title', 'code', 'linenos',
-                  'language', 'style', 'owner', 'hilighted']
+        fields = ['url', 'id', 'highlight','owner','title', 'code', 'linenos',
+                  'language', 'style']
 
 
-class UserSerializer(serializers.ModelSerializer):
+# class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    snippets = serializers.HyperlinkedRelatedField(
+        many=True, view_name='snippet-detail', read_only=True)
     snippets = serializers.PrimaryKeyRelatedField(
         many=True, queryset=Snippet.objects.all())
+    
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'snippets']
+        fields = ['url', 'id', 'username', 'snippets']

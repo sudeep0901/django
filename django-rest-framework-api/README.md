@@ -47,3 +47,18 @@ http --json POST http://127.0.0.1:8000/snippets/snippets/ code="print(456)"
 
 formatting url
 http://127.0.0.1:8000/snippets/snippets/1?format=json
+http --json GET http://127.0.0.1:8000/snippets/snippets/?format=json
+
+
+
+
+# Hyperlinking our API
+
+Dealing with relationships between entities is one of the more challenging aspects of Web API design. There are a number of different ways that we might choose to represent a relationship:
+
+    Using primary keys.
+    Using hyperlinking between entities.
+    Using a unique identifying slug field on the related entity.
+    Using the default string representation of the related entity.
+    Nesting the related entity inside the parent representation.
+    Some other custom representation.
