@@ -12,8 +12,6 @@ python manage.py migrate
 # syntax hilighters
 pip install pygments
 
-
-
 # DJANGO Extenstions
 pip install django-extensions
 # pip install jupyter ipython django-extensions
@@ -63,3 +61,7 @@ Dealing with relationships between entities is one of the more challenging aspec
     Using the default string representation of the related entity.
     Nesting the related entity inside the parent representation.
     Some other custom representation.
+
+
+# ViewSets & Routers
+
