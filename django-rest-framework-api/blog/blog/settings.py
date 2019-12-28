@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'blogapp',
     'snippets.apps.SnippetsConfig',
     'django_extensions',
+    
 ]
 
 MIDDLEWARE = [
