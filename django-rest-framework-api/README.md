@@ -63,3 +63,20 @@ Dealing with relationships between entities is one of the more challenging aspec
     Using the default string representation of the related entity.
     Nesting the related entity inside the parent representation.
     Some other custom representation.
+
+
+
+2.1 How to find the query associated with a queryset?
+
+snippet = Snippet.objects.all()
+str(snippet.query) 
+
+queryset = Snippet.objects.filter(id__gt=5)       
+
+
+# Convert database to django models
+python manage.py  inspectdb
+python manage.py inspectdb > models.py
+
+
+use db.managed = False in Meta Class to model to use sql views/index
