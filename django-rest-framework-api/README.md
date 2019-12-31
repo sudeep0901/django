@@ -80,3 +80,76 @@ python manage.py inspectdb > models.py
 
 
 use db.managed = False in Meta Class to model to use sql views/index
+
+
+Code chechking with 
+--------------------------------------
+pip install pycodestyle
+pycodestyle {python.py}
+
+pylint {source_file_or_directory}
+
+# pyflakes
+--------------------
+
+pyflakes is a verification tool(linter) which checks for Python files for errors. Pyflakes doesn’t verify the style at all but it verifies only logistic errors like the syntax tree of each file individually.
+
+To install it: pip install pyflakes.
+
+Let us take the same example script to test pyflakes
+
+Usage: pyflakes {source_file_or_directory}
+
+
+# flake8
+-----------------------------
+
+Flake8 is just a wrapper around pyflakes, pycodestyle and McCabe script (circular complexity checker) (which is used to detect complex-code).
+
+If we like Pyflakes but also want stylistic checks, we can use flake8, which combines Pyflakes with style checks against PEP 8
+
+To install it: pip install flake8.
+
+Usage: flake8 {source_file_or_directory}
+
+To get statics also flake8 {source_file_or_directory} --statistics
+
+
+black
+----------------------
+
+black is a python code auto-formatter. Black reformats entire files in place and also formats the strings to have double-qoutes.
+
+Black is not configurable(except for line-length).
+
+To install it: pip install black.
+
+Usage: black {source_file_or_directory}
+
+The response we got when we did black test_script.py is
+_images/black-formatter.png
+
+Using the file test_script.py as an example
+
+
+autopep8
+---------------------------
+
+autopep8 automatically formats Python code to the PEP8 style. It fixes most of the formatting issues that are reported by pycodestyle.
+
+To install it: pip install autopep8
+
+Usage(to format a file): autopep8 --in-place {file_name}
+
+here --in-place is to make changes to files in place.
+
+
+yapf
+----------------------------------------
+Yet another Python formatter is another auto-formatter which is maintained by google. yapf is highly configurable and it has different base configurations, like pep8, Google and Facebook.
+
+To install it: pip install yapf
+
+Usage: yapf -i {source_file_or_directory}
+
+here -i is to make changes to files in place.
