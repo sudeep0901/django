@@ -168,6 +168,7 @@ File.add_to_class("method_x", method_x)
 
 # Django Jupyter Notebook Extenstion code to run in notebook
 -------------------------------------------------------------
+```python
 import os, sys
 PWD = os.getenv('PWD')
 os.chdir(PWD)
@@ -296,4 +297,3 @@ contribute_to_class() method.
 * There is one very important thing to keep in mind when dealing with contribute_to_class() . It’s been mentioned a few times already in various places, but it’s so important that it merits driving home very explicitly. If Django identifies an object as having a contribute_to_class() method, only that method will be called. Normally, setattr() is used to set attributes on an object such as a class, but since model fields don’t get set in the standard namespace, that step is skipped intentionally. Therefore, if a custom field does in fact need to be set
 as an attribute on the model class itself, doing so is the sole responsibility of the field itself, during the execution of its contribute_to_class() method.
 
-    
