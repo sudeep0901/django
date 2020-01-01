@@ -208,8 +208,10 @@ Snippet._meta.auto_field
 # Model Configuration with Meta Class in Model are stored in _meta 
 Snippet._meta.ordering
 Snippet._meta.app_label 
+```
 
-
+# Django Model Field Attributes
+#-----------------------------------------------------------
 abstract—A Boolean that indicates whether the model was defined as abstract, a process that
 is described in more detail in Django’s model inheritance documentation. 2 The default value
 is False.
@@ -270,7 +272,7 @@ You are supposed to use django.apps instead.
    from django.apps import apps
    apps.get_models()  is replacement of get_cache()
    apps.get_model('snippets', 'snippet')          
-
+```
 
 
 #### contribute_to_class(self, cls, name)
@@ -278,7 +280,7 @@ You are supposed to use django.apps instead.
 
 
 
-### CONTRIBUTE_TO_CLASS() VS SETATTR()
+# CONTRIBUTE_TO_CLASS() VS SETATTR()
 There is one very important thing to keep in mind when dealing with contribute_to_class() . It’s been
 mentioned a few times already in various places, but it’s so important that it merits driving home very explicitly.
 If Django identifies an object as having a contribute_to_class() method, only that method will be called.
