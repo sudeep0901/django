@@ -23,3 +23,13 @@ dir(pclass)
 pclass.name = "Sudeep Patel"
 print(pclass.name)
 print(pclass.name_prop)
+
+
+class Person:
+    name = "sudeep"
+    age = 34
+
+person  = Person()
+print(getattr(person, "name1", "Namasvi"))
+setattr(person, "name", "Manasvi")
+print(person.name)
